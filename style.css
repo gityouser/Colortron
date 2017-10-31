@@ -1,0 +1,39 @@
+.box {
+  background: grey;
+  height: 6.5em;
+  width: 6.5em;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  color: grey;
+  /*transition: all .4s;*/
+}
+.box:hover {
+  box-shadow: 2px 2px 40px 10px rgba(0, 0, 0, .2);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(6.5em, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(6.5em, 1fr));
+  grid-auto-flow: column;
+  grid-auto-flow: row;
+  background: grey;
+}
+
+.reset {
+  background-color: grey;
+  height: 6.5em;
+  width: 6.5em;
+  display: flex;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 1em;
+  border: none;
+  color: transparent;
+  display: flex;
+  justify-content: center;
+}
