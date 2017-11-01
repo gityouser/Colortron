@@ -9,9 +9,6 @@ function boxMaker() {
     wrapper.appendChild(createDiv);
     createDiv.classList.add('box');
     createDiv.addEventListener('mouseover', change);
-    // createDiv.innerHTML = i;
-    // let wrapperHeight = wrapper.offsetHeight;
-    // let wrapperWidth = wrapper.offsetWidth;
   }
   let boxes = document.querySelectorAll('.box');
   resetMaker();
@@ -33,7 +30,7 @@ function resetMaker() {
   let boxes = document.querySelectorAll('.box');
   let randomBox = boxes[Math.floor(Math.random() * boxes.length)];
 
-// No need to set data-id!   
+// No need to set data-id!
   // randomBox.dataset.id = "specialBox";
 
   let resetButton = document.createElement('button');
@@ -45,8 +42,7 @@ function resetMaker() {
   resetButton.addEventListener('mouseleave', zoomOut);
   resetButton.addEventListener('click', springClean);
 
-
-//REMOVED as redundant and stupid.
+//REMOVED as redundant!
   // for (i = 0; i < boxes.length; i++) {
   //   let boxesArray = Array.from(boxes);
   //
@@ -73,19 +69,18 @@ function zoomOut() {
   console.log("Zoom Out");
 }
 
-function transform() {
-  document.querySelector('.reset').style.transform= 'translateX(50px) rotate(50deg) translateY(15px)';
-}
-
 function springClean() {
-  document.querySelector('.reset').style.cssText = "transform: rotate(1turn); transition: 2s;"
-  for (i = 0; i < boxes.length; i++) {
-    let boxesArray = Array.from(boxes);
-    boxesArray[i].style.backgroundColor = "grey";
-      let wrapper = document.querySelector('.wrapper')
-      while (wrapper.hasChildNodes()) {
-        wrapper.removeChild(wrapper.firstChild);
-      }
+  let wrapper = document.querySelector('.wrapper')
+  while (wrapper.hasChildNodes()) {
+    wrapper.removeChild(wrapper.firstChild);
+//REMOVED as redundant!
+  // for (i = 0; i < boxes.length; i++) {
+  //   let boxesArray = Array.from(boxes);
+  //   boxesArray[i].style.backgroundColor = "grey";
+  //     let wrapper = document.querySelector('.wrapper')
+  //     while (wrapper.hasChildNodes()) {
+  //       wrapper.removeChild(wrapper.firstChild);
+  //     }
     }
     boxMaker();
 }
