@@ -17,9 +17,9 @@ function init() {
 }
 
 function changeColor(e) {
-  var r = Math.floor(Math.random() * 256);
-  var g = Math.floor(Math.random() * 256);
-  var b = Math.floor(Math.random() * 256);
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
   e.target.style.backgroundColor = `rgb(${r},${g},${b})`;
 }
 
@@ -35,3 +35,8 @@ playButton.addEventListener('click', e => {
   overlay.classList.add('hidden');
   init();
 });
+
+setTimeout(() => {
+  reset();
+  overlay.classList.remove('hidden');
+}, 10000);
