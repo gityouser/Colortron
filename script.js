@@ -1,3 +1,5 @@
+const overlay = document.querySelector('.overlay');
+const playButton = document.querySelector('.button');
 const squareSide = 100;
 const wrapper = document.querySelector('.wrapper');
 
@@ -21,6 +23,15 @@ function changeColor(e) {
   e.target.style.backgroundColor = `rgb(${r},${g},${b})`;
 }
 
+function reset() {
+  while (wrapper.hasChildNodes()) {
+    wrapper.removeChild(wrapper.firstChild);
+  }
+}
+
 window.onresize = init;
 
-init();
+playButton.addEventListener('click', e => {
+  overlay.classList.add('hidden');
+  init();
+});

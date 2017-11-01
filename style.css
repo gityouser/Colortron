@@ -22,7 +22,39 @@ body {
   display: flex;
   background: grey;
 }
-
+.overlay {
+  align-items: center;
+  background-color: rgba(50, 50, 50, 0.8);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  transition: all 1s;
+}
+.overlay.hidden {
+  top: -100vh;
+}
+.modal {
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  font-family: Helvetica, Arial, sans-serif;
+  height: 220px;
+  padding: 20px;
+  width: 350px;
+}
+.button {
+  align-self: center;
+  background-color: orangered;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  padding: 15px;
+}
 /*.reset {
   background-color: grey;
   height: 6.5em;
