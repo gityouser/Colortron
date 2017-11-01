@@ -1,5 +1,9 @@
+const squareSide = 100;
+
 function boxMaker() {
-  for (i=0; i < 108; i++) {
+  const perRow = Math.floor(document.body.offsetWidth / squareSide);
+  const rows = Math.floor(document.body.offsetHeight / squareSide);
+  for (i=0; i < perRow * rows; i++) {
     let wrapper = document.querySelector('.wrapper')
     let createDiv = document.createElement('div');
     wrapper.appendChild(createDiv);
@@ -18,7 +22,7 @@ function change(i) {
   var r = Math.floor(Math.random() * 256);
   var g = Math.floor(Math.random() * 256);
   var b = Math.floor(Math.random() * 256);
-  var mix = "rgb("+ r + "," + g + "," + b + ")";
+  var mix = `rgb(${r},${g},${b})`;
   i.target.style.backgroundColor = mix;
   console.log("Div no. " + i.target.innerHTML + ' ' + mix);
 }
@@ -26,25 +30,38 @@ function change(i) {
 const boxes = document.querySelectorAll('.box');
 
 function resetMaker() {
-    let boxes = document.querySelectorAll('.box');
+  let boxes = document.querySelectorAll('.box');
   let randomBox = boxes[Math.floor(Math.random() * boxes.length)];
-  randomBox.dataset.id = "specialBox";
 
-  for (i = 0; i < boxes.length; i++) {
-    let boxesArray = Array.from(boxes);
+// No need to set data-id!   
+  // randomBox.dataset.id = "specialBox";
 
-    if(boxesArray[i].dataset.id == 'specialBox') {
-      console.log(i);
-      let resetButton = document.createElement('button');
-      boxesArray[i].appendChild(resetButton);
-      resetButton.classList.add('reset');
-      resetButton.innerHTML = "RESET";
+  let resetButton = document.createElement('button');
+  randomBox.appendChild(resetButton);
+  resetButton.classList.add('reset');
+  resetButton.innerHTML = "RESET";
 
-      resetButton.addEventListener('mouseover', resetStyle);
-      resetButton.addEventListener('mouseleave', zoomOut);
-      resetButton.addEventListener('click', springClean);
-    }
-  }
+  resetButton.addEventListener('mouseover', resetStyle);
+  resetButton.addEventListener('mouseleave', zoomOut);
+  resetButton.addEventListener('click', springClean);
+
+
+//REMOVED as redundant and stupid.
+  // for (i = 0; i < boxes.length; i++) {
+  //   let boxesArray = Array.from(boxes);
+  //
+  //   if(boxesArray[i].dataset.id == 'specialBox') {
+  //     console.log(i);
+  //     let resetButton = document.createElement('button');
+  //     boxesArray[i].appendChild(resetButton);
+  //     resetButton.classList.add('reset');
+  //     resetButton.innerHTML = "RESET";
+  //
+  //     resetButton.addEventListener('mouseover', resetStyle);
+  //     resetButton.addEventListener('mouseleave', zoomOut);
+  //     resetButton.addEventListener('click', springClean);
+  //   }
+  // }
 }
 
 function resetStyle() {
