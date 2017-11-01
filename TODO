@@ -1,0 +1,10 @@
+make a level controller
+  - takes user name
+  - starts new levels
+  - takes care of finishing levels
+
+make a level generator
+  - something to actually init the squares
+  - init the timers, etc etc (this can also go to the level controller)
+
+Scopul este sa ai nivele (sa progresezi prin ele) si sa poti inregistra cat timp a durat ca user-ul sa termine un nivel (+ numele user-ului)
