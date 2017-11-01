@@ -48,8 +48,7 @@ function resetMaker() {
 }
 
 function resetStyle() {
-  document.querySelector('.reset').style.cssText = "color: black; border: 2px outset white;  box-shadow: 2px 2px 40px 10px gold; transform: scale(1.2) skew(30deg, 20deg); transition: .4s"
-  console.log("Styled");
+  document.querySelector('.reset').style.cssText = "color: black; border: 2px outset lightgoldenrodyellow;  box-shadow: 2px 2px 40px 10px gold; transform: scale(1.1); transition: .4s"
 }
 
 function zoomOut() {
