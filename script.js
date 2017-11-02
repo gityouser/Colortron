@@ -19,24 +19,44 @@ function change(event) {
   const b = Math.round(Math.random() * 255);
   const mix = `rgb(${r},${g},${b})`;
   event.target.style.backgroundColor = mix;
-  console.log('Div no. ' + event.target.innerHTML + ' ' + mix);
+  if(!event.target.dataset.id) {
+    event.target.dataset.id = 'completed';
+    console.log("DATA-ID ADDED!!!");
+  };
+  const boxes = document.querySelectorAll('.box');
+  let boxeZ = Array.from(boxes);
+  const boxID = boxeZ.every(function(box){
+    return box.dataset.id == 'completed';
+  });
+  if(boxeZ.every(function(index){
+    return index.dataset.id == 'completed';
+  })) {
+    console.log("WOOOHOOO!!!");
+    toggleCongrats();
+  }
+  console.log(`Div no. ${event.target.innerHTML} ${mix}`);
 }
 
 function resetMaker() {
   let boxes = document.querySelectorAll('.box');
   let randomBox = boxes[Math.round(Math.random() * (boxes.length - 1))];
 
-  // No need to set data-id!
-  // randomBox.dataset.id = "specialBox";
+  // let resetButton = document.createElement('button');
+  // randomBox.appendChild(resetButton);
+  // resetButton.classList.add('reset');
+  // resetButton.innerHTML = 'RESET';
+  //
+  // resetButton.addEventListener('mouseover', resetStyle);
+  // resetButton.addEventListener('mouseleave', zoomOut);
+  // resetButton.addEventListener('click', springClean);
 
-  let resetButton = document.createElement('button');
-  randomBox.appendChild(resetButton);
-  resetButton.classList.add('reset');
-  resetButton.innerHTML = 'RESET';
+// I discarded the above 'shait' and I replaced with below 'better shait'!
+  randomBox.classList.add('reset');
+  randomBox.innerHTML = 'RESET';
 
-  resetButton.addEventListener('mouseover', resetStyle);
-  resetButton.addEventListener('mouseleave', zoomOut);
-  resetButton.addEventListener('click', springClean);
+  randomBox.addEventListener('mouseover', resetStyle);
+  randomBox.addEventListener('mouseleave', zoomOut);
+  randomBox.addEventListener('click', springClean);
 }
 
 function resetStyle() {
@@ -59,8 +79,16 @@ function springClean() {
 const overlay = document.querySelector('.overlay');
 const button = document.querySelector('.button');
 button.addEventListener('click', toggleOverlay);
+
 function toggleOverlay() {
-  overlay.classList.toggle('hidden');
+  overlay.classList.toggle('hiddenOverlay');
   overlay.style.transition = "all 1s";
   boxMaker();
+}
+
+const congrats = document.querySelector('.congrats');
+function toggleCongrats() {
+  congrats.classList.toggle('hiddenCongrats');
+  congrats.style.transition = "all 1s";
+  console.log("CONGRATTTTSS!!");
 }

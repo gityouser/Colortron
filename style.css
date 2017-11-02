@@ -3,8 +3,19 @@
   color: dimgrey;
 }
 
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+  grid-auto-flow: column;
+  grid-auto-flow: row;
+  background: darkgrey;
+}
+
 .box {
-  background: dimgrey;
+  background: darkgrey;
   height: 100px;
   width: 100px;
   border-radius: 10px;
@@ -72,22 +83,33 @@
   transition: .4s;
 }
 
-.hidden {
+.hiddenOverlay {
   top: -100vh;
-}
-.wrapper {
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
-  grid-auto-flow: column;
-  grid-auto-flow: row;
-  background: dimgrey;
+
 }
 
+.hiddenCongrats {
+  bottom: 0;
+  background-color: red;
+}
+.congrats {
+  bottom: -100vh;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(10, 68, 91, 0.7);
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 500px) 1fr;
+  grid-template-rows: 1fr 300px 1fr;
+  grid-template-areas:
+  ".   .     ."
+  ". message ."
+  ".   .     .";
+}
+
+
 .reset {
-  background-color: dimgrey;
+  background-color: darkgrey;
   height: 100px;
   width: 100px;
   display: flex;
