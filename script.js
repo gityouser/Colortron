@@ -4,8 +4,7 @@ const squareSide = 100;
 const wrapper = document.querySelector('.wrapper');
 
 function init() {
-  // HACK: shitty reset
-  wrapper.innerHTML = '';
+  reset();
   const perRow = Math.floor(document.body.offsetWidth / squareSide);
   const rows = Math.floor(document.body.offsetHeight / squareSide);
   for (i = 0; i < perRow * rows; i++) {
@@ -37,6 +36,5 @@ playButton.addEventListener('click', e => {
 });
 
 setTimeout(() => {
-  reset();
   overlay.classList.remove('hidden');
 }, 10000);
