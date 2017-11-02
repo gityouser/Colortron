@@ -1,9 +1,10 @@
 * {
   font-family: Helvetica, Arial, sans-serif;
+  color: dimgrey;
 }
 
 .box {
-  background: grey;
+  background: dimgrey;
   height: 100px;
   width: 100px;
   border-radius: 10px;
@@ -27,7 +28,7 @@
 }*/
 
 .overlay {
-    transition: all 2s;
+  top: 0;
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -53,19 +54,26 @@
 }
 
 .button {
+
   border-radius: 10px;
   background-color: orangered;
+  color: mintcream;
   padding: 20px;
-  border: none;
   font-size: 20px;
   font-weight: 800;
   margin-left: auto;
   margin-right: auto;
+  border: none;
+  transition: .3s;
 }
 
-.overlay.hidden {
+.button:hover {
+  transform: translate(10px) rotate(10deg);
+  transition: .4s;
+}
+
+.hidden {
   top: -100vh;
-  transition: all 2s;
 }
 .wrapper {
   height: 100vh;
@@ -75,11 +83,11 @@
   grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
   grid-auto-flow: column;
   grid-auto-flow: row;
-  background: grey;
+  background: dimgrey;
 }
 
 .reset {
-  background-color: grey;
+  background-color: dimgrey;
   height: 100px;
   width: 100px;
   display: flex;

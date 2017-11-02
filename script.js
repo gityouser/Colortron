@@ -12,7 +12,6 @@ function boxMaker() {
   }
   resetMaker();
 }
-boxMaker();
 
 function change(event) {
   const r = Math.round(Math.random() * 255);
@@ -38,28 +37,11 @@ function resetMaker() {
   resetButton.addEventListener('mouseover', resetStyle);
   resetButton.addEventListener('mouseleave', zoomOut);
   resetButton.addEventListener('click', springClean);
-
-  //REMOVED as redundant!
-  // for (i = 0; i < boxes.length; i++) {
-  //   let boxesArray = Array.from(boxes);
-  //
-  //   if(boxesArray[i].dataset.id == 'specialBox') {
-  //     console.log(i);
-  //     let resetButton = document.createElement('button');
-  //     boxesArray[i].appendChild(resetButton);
-  //     resetButton.classList.add('reset');
-  //     resetButton.innerHTML = "RESET";
-  //
-  //     resetButton.addEventListener('mouseover', resetStyle);
-  //     resetButton.addEventListener('mouseleave', zoomOut);
-  //     resetButton.addEventListener('click', springClean);
-  //   }
-  // }
 }
 
 function resetStyle() {
   document.querySelector('.reset').style.cssText =
-    'color: black; border: 2px outset lightgoldenrodyellow;  box-shadow: 2px 2px 40px 10px gold; transform: scale(1.1); transition: .4s';
+    'font-family: Helvetica, Arial, sans-serif; color: black; box-shadow: 2px 2px 40px 10px gold; transform: scale(1.1); transition: .4s';
 }
 
 function zoomOut() {
@@ -68,20 +50,17 @@ function zoomOut() {
 }
 
 function springClean() {
+  toggleOverlay();
   while (wrapper.hasChildNodes()) {
     wrapper.removeChild(wrapper.firstChild);
-    //REMOVED as redundant!
-    // for (i = 0; i < boxes.length; i++) {
-    //   let boxesArray = Array.from(boxes);
-    //   boxesArray[i].style.backgroundColor = "grey";
-    //     let wrapper = document.querySelector('.wrapper')
-    //     while (wrapper.hasChildNodes()) {
-    //       wrapper.removeChild(wrapper.firstChild);
-    //     }
   }
-  boxMaker();
 }
 
 const overlay = document.querySelector('.overlay');
 const button = document.querySelector('.button');
-button.addEventListener('click', () => overlay.classList.toggle('hidden'));
+button.addEventListener('click', toggleOverlay);
+function toggleOverlay() {
+  overlay.classList.toggle('hidden');
+  overlay.style.transition = "all 1s";
+  boxMaker();
+}
