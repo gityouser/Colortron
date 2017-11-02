@@ -81,3 +81,7 @@ function springClean() {
   }
   boxMaker();
 }
+
+const overlay = document.querySelector('.overlay');
+const button = document.querySelector('.button');
+button.addEventListener('click', () => overlay.classList.toggle('hidden'));
