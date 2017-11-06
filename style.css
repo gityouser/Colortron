@@ -38,6 +38,54 @@
   }
 }*/
 
+
+.message {
+  grid-area: message;
+  background-color: mintcream;
+  border-radius: 25px;
+  padding: 15px;
+  display: flex;
+  justify-content:center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.start-button {
+
+  border-radius: 10px;
+  background-color: orangered;
+  color: mintcream;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 800;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  transition: .3s;
+}
+
+.start-button:hover {
+  transform: translate(10px) rotate(10deg);
+  transition: .4s;
+}
+
+.retry-button {
+  background-color: gold;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 800;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  transition: all 1s;
+}
+
+.retry-button:hover {
+  background-color: springgreen;
+}
+
+
 .overlay {
   top: 0;
   position: fixed;
@@ -52,47 +100,14 @@
   ". message ."
   ".   .     .";
 }
-
-.message {
-  grid-area: message;
-  background-color: mintcream;
-  border-radius: 25px;
-  padding: 15px;
-  display: flex;
-  justify-content:center;
-  text-align: center;
-  flex-direction: column;
-}
-
-.button {
-
-  border-radius: 10px;
-  background-color: orangered;
-  color: mintcream;
-  padding: 20px;
-  font-size: 20px;
-  font-weight: 800;
-  margin-left: auto;
-  margin-right: auto;
-  border: none;
-  transition: .3s;
-}
-
-.button:hover {
-  transform: translate(10px) rotate(10deg);
-  transition: .4s;
-}
-
-.hiddenOverlay {
+.overlay.hiddenOverlay {
   top: -100vh;
 
 }
 
-.hiddenCongrats {
-  bottom: 0;
-  background-color: red;
-}
 .congrats {
+  z-index: 1;
+  transition: all 1s;
   bottom: -100vh;
   position: fixed;
   height: 100vh;
@@ -106,10 +121,14 @@
   ". message ."
   ".   .     .";
 }
-
+.congrats.hiddenCongrats {
+  bottom: 0;
+  background-image: url('congrats.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .reset {
-  background-color: darkgrey;
   height: 100px;
   width: 100px;
   display: flex;
@@ -118,6 +137,5 @@
   font-size: 1em;
   border: none;
   color: transparent;
-  display: flex;
   justify-content: center;
 }
