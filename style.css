@@ -113,6 +113,9 @@
   height: 100vh;
   width: 100vw;
   background-color: rgba(10, 68, 91, 0.7);
+  background-image: url('congrats.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   display: grid;
   grid-template-columns: 1fr minmax(300px, 500px) 1fr;
   grid-template-rows: 1fr 300px 1fr;
@@ -123,9 +126,6 @@
 }
 .congrats.hiddenCongrats {
   bottom: 0;
-  background-image: url('congrats.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .reset {
